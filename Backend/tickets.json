@@ -1,0 +1,87 @@
+{
+    "tickets": [
+      {
+        "id": 1,
+        "event_id": 1,
+        "ticket_name": "Gold",
+        "event_quantity": 100,
+        "ticket_information": "Includes VIP seating and exclusive access to the VIP lounge.",
+        "ticket_price": 50
+      },
+      
+      {
+      
+        "id": 2,
+        "event_id": 1,
+        "ticket_name": "Silver",
+        "event_quantity": 200,
+        "ticket_information": "Provides standard seating with access to all event facilities.",
+        "ticket_price": 30
+      },
+      {
+        "id": 3,
+        "event_id": 2,
+        "ticket_name": "Basic",
+        "event_quantity": 150,
+        "ticket_information": "General admission ticket.",
+        "ticket_price": 20
+      },
+      {
+        "id": 4,
+        "event_id": 3,
+        "ticket_name": "Gold",
+        "event_quantity": 50,
+        "ticket_information": "Includes guided tour and exclusive merchandise.",
+        "ticket_price": 40
+      },
+      {
+        "id": 5,
+        "event_id": 4,
+        "ticket_name": "Silver",
+        "event_quantity": 100,
+        "ticket_information": "Provides access to main stage area.",
+        "ticket_price": 25
+      },
+      {
+        "id": 6,
+        "event_id": 4,
+        "ticket_name": "Basic",
+        "event_quantity": 150,
+        "ticket_information": "General admission ticket.",
+        "ticket_price": 15
+      },
+      {
+        "id": 7,
+        "event_id": 5,
+        "ticket_name": "Gold",
+        "event_quantity": 80,
+        "ticket_information": "Includes access to exclusive cinematography masterclass.",
+        "ticket_price": 35
+      },
+      {
+        "id": 8,
+        "event_id": 5,
+        "ticket_name": "Basic",
+        "event_quantity": 200,
+        "ticket_information": "General admission ticket.",
+        "ticket_price": 20
+      },
+      {
+        "id": 9,
+        "event_id": 6,
+        "ticket_name": "Silver",
+        "event_quantity": 120,
+        "ticket_information": "Provides access to food tasting sessions.",
+        "ticket_price": 30
+      },
+      {
+        "id": 10,
+        "event_id": 6,
+        "ticket_name": "Basic",
+        "event_quantity": 250,
+        "ticket_information": "General admission ticket.",
+        "ticket_price": 15
+      }
+    ]
+  }
+  

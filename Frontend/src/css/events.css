@@ -1,0 +1,125 @@
+.share-option {
+  position: absolute; /* Position absolutely within the event-image container */
+  top: -10px; /* Position it above the image */
+  right: 0; /* Align to the right */
+  cursor: pointer; /* Set cursor to pointer for interaction */
+  background-color: white; /* Background color for visibility */
+  border-radius: 50%; /* Round border */
+  padding: 5px; /* Add padding */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.share-option svg {
+  color: black; 
+}
+
+
+.event-image img {
+  width: 100%;
+}
+
+.event-details-container {
+  margin-top: 0px;
+}
+
+.event-details-container h2 {
+  margin-bottom: 10px;
+}
+
+.event-details-container p {
+  margin-bottom: 5px;
+}
+
+.event-location {
+  display: flex;
+  justify-content: space-between;
+}
+.event-image img {
+  width: 100%;
+  border-radius: 20px;
+  
+}
+.event-image p {
+  margin-top: 5px; /* Set margin to 5px */
+  margin-bottom: 5px; /* Set margin to 5px */
+}
+
+.event-image {
+  margin-top: 0px;
+  background-color: black; /* Set the background color to black */
+  color: white; /* Set the text color to white */
+  padding: 20px;
+  position: relative;
+  
+
+  
+
+}
+
+
+.event-description {
+  margin-top: 20px;
+}
+
+.event-description h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal; 
+  text-align: center; /* Center the content */
+  margin: 0 20px;
+  margin-bottom: 10px;
+ 
+}
+
+.description-border {
+  border: 2px solid #fff; /* Border style */
+  border-radius: 20px; /* Border radius to create rounded corners */
+  padding: 20px; /* Add padding inside the border */
+  background-color: rgba(227, 225, 225, 0.5); /* Semi-transparent background color */
+
+}
+
+    .event-tickets {
+      margin-top: 20px; 
+  
+}
+
+.event-tickets h3 {
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 2px;
+  font-weight: normal; 
+  text-align: center; /* Center the content */
+  margin: 0 20px;
+  margin-bottom: 10px;
+}
+.tickets-container {
+  margin-top: 20px;
+  border: 2px solid #fff; /* Add border */
+  border-radius: 20px; /* Add border radius */
+  padding: 20px; /* Add padding */
+  background-color: rgba(227, 225, 225, 0.5);
+}
+.ticket {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.ticket h4,
+.ticket p {
+  margin: 0;
+}
+.ticket-info {
+  flex-grow: 1; /* Makes ticket info take up remaining space */
+}
+
+
+.grey-box {
+  background-color: #272626;
+  padding: 5px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.min-ticket-price {
+  margin-top: px;
+}

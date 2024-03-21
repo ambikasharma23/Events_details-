@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { faCalendarAlt, faClock, faMapMarkerAlt, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import Chatbot from './chatbot';
 import '../css/events.css';
 
 const EventDetails = () => {
@@ -11,7 +11,7 @@ const EventDetails = () => {
   const [tickets, setTickets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [shareText, setShareText] = useState(''); // State to hold the shared text
+  const [shareText, setShareText] = useState(''); 
   const navigate = useNavigate();
 
   const formatDate = (dateString) => {
@@ -22,7 +22,7 @@ const EventDetails = () => {
 
   const handleShare = () => {
     const eventUrl = new URL(window.location.href);
-    const shareText = 'Check out this event!'; // Custom text to be shared
+    const shareText = 'Check out this event!'; 
 
     // Append custom text to the URL
     eventUrl.searchParams.append('text', shareText);
@@ -85,34 +85,24 @@ const EventDetails = () => {
 
   return (
     <div className="event-details-container">
-  <div className="event-image">
-  <div className="share-option" onClick={handleShare}>
-    <FontAwesomeIcon icon={faShareAlt} />
-  </div>
-  <img src={event.event_image} alt={event.event_name} />
-  <h2>{event.event_name}</h2>
-  <p><FontAwesomeIcon icon={faCalendarAlt} /> {formatDate(event.event_date)}</p>
-  <p><FontAwesomeIcon icon={faClock} /> {event.event_time}</p>
-  <p><FontAwesomeIcon icon={faMapMarkerAlt} /> {event.event_city}</p>
-  
- 
-
-<div className="ticket-info">
-  {tickets.length > 0 && (
-    <div className="ticket">
-      {/* <div className="ticket-name">
-        <h4>{tickets[0].ticket_name}</h4>
-      </div> */}
-      <div className="ticket-price grey-box">
-        <h4>${tickets.reduce((min, ticket) => (ticket.ticket_price < min ? ticket.ticket_price : min), tickets[0].ticket_price)}</h4>
-        <p>onwards</p> {/* Display a label for clarity */}
+      <div className="event-image">
+        <div className="share-option" onClick={handleShare}>
+          <FontAwesomeIcon icon={faShareAlt} />
+        </div>
+        <img src={event.event_image} alt={event.event_name} />
+        <h2>{event.event_name}</h2>
+        {tickets.length > 0 && (
+          <div className="ticket">
+            <div className="ticket-price grey-box">
+              <h4>${tickets.reduce((min, ticket) => (ticket.ticket_price < min ? ticket.ticket_price : min), tickets[0].ticket_price)}</h4>
+              <p>onwards</p> {/* Display a label for clarity */}
+            </div>
+          </div>
+        )}
+        <p><FontAwesomeIcon icon={faCalendarAlt} /> {formatDate(event.event_date)}</p>
+        <p><FontAwesomeIcon icon={faClock} /> {event.event_time}</p>
+        <p><FontAwesomeIcon icon={faMapMarkerAlt} /> {event.event_city}</p>
       </div>
-    </div>
-  )}
-</div>
-
-  </div>
-
 
       <div className="event-description">
         <h3>ABOUT THIS EVENT</h3>
@@ -144,7 +134,13 @@ const EventDetails = () => {
           <p>Shared Text: {shareText}</p>
         </div>
       )}
+
+      {/* Book Tickets Button */}
+      <div className="book-tickets-button">
+        <button>Book Tickets</button>
+      </div>
     </div>
+    
   );
 };
 

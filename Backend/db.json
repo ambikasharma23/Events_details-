@@ -17,7 +17,7 @@
         "event_image": "https://shorturl.at/dfCO0",
         "event_city": "Zirakpur",
         "event_region": "Chandigarh",
-        "event_category": ["comedy"],
+        "event_category": "comedy",
         "event_description": "Prepare for an uproarious evening filled with laughter and entertainment at the Comedy Night in Zirakpur! Featuring some of the finest comedians in town, this event guarantees non-stop hilarity and side-splitting humor that will have you rolling in the aisles. Whether you're a fan of witty one-liners, observational humor, or outrageous anecdotes, there's something for everyone at this comedy extravaganza. So gather your friends and family, and get ready to enjoy a night of pure comedy gold!",
         "event_date": "2024-04-05",
         "event_time": "7:00pm-9:00pm"

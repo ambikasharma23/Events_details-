@@ -123,3 +123,40 @@
 .min-ticket-price {
   margin-top: px;
 }
+
+/* .book-tickets-button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #007bff; 
+  padding: 15px 0; 
+} */
+
+.book-tickets-button {
+  position: fixed;
+  bottom: 0; 
+  left: 50%; /* Center the button horizontally */
+  transform: translateX(-50%); /* Center the button horizontally */
+  width: calc(100% - 40px); /* Calculate the width of the button (100% - 40px) */
+  max-width: 400px; /* Example max-width */
+  padding: 15px 0;
+  text-align: center; /* Center the text */
+}
+
+.book-tickets-button button {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 20px; /* Adjust padding as needed */
+  font-size: 16px;
+  color: white;
+  background-color: #E23744; /* Same as parent background color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.book-tickets-button button:hover {
+  background-color: #c8202a; /* Darker shade of the background color */
+}
+

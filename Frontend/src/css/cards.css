@@ -1,33 +1,45 @@
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .card {
-    width: 300px;
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .card p {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-  
+/* CSS */
+.event-card {
+  background-color: white;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-image {
+  width: 100%;
+  border-top-left-radius: 10px; /* Ensure rounded corners for the image */
+  border-top-right-radius: 10px;
+}
+
+.event-details {
+  color: black; /* Text color */
+  flex-grow: 1; /* Grow to fill remaining space */
+}
+
+.event-details h2 {
+  color: black; /* Header color */
+}
+
+.event-details p {
+  margin: 5px 0;
+}
+
+.book-now-button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: auto; /* Align at the bottom */
+  align-self: flex-end; /* Align to the right */
+}
+
+.book-now-button:hover {
+  background-color: darkred;
+}

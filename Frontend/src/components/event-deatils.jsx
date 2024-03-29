@@ -135,6 +135,8 @@ const EventDetails = () => {
         </div>
       )}
 
+      
+
       {/* Book Tickets Button */}
       <div className="book-tickets-button">
         <button>Book Tickets</button>

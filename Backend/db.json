@@ -1,4 +1,5 @@
 {
+  
     "events": [
       {
         "id": 1,
@@ -8,7 +9,7 @@
         "event_region": "Delhi",
         "event_category": ["holi", "music", "sponsored", "food"],
         "event_description": "Join us for a vibrant and colorful Holi celebration with music, dance, and delicious foodThe Holi Festival Celebration promises an exhilarating experience filled with joyous revelry and cultural festivities. Embrace the spirit of unity and friendship as you immerse yourself in the festive ambiance, adorned in bright colors and surrounded by the infectious beats of traditional and contemporary music. Indulge your taste buds with an array of delectable cuisines, ranging from mouthwatering street food to tantalizing gourmet delights. Whether you're dancing to the rhythm of the dhol or savoring the flavors of the season, this celebration is sure to leave you with unforgettable memories.",
-        "event_date": "2024-03-21",
+        "event_date": "2024-03-21", 
         "event_time": "10:00am-3:00pm"
       },
       {
@@ -17,7 +18,7 @@
         "event_image": "https://shorturl.at/dfCO0",
         "event_city": "Zirakpur",
         "event_region": "Chandigarh",
-        "event_category": "comedy",
+        "event_category": ["comedy"],
         "event_description": "Prepare for an uproarious evening filled with laughter and entertainment at the Comedy Night in Zirakpur! Featuring some of the finest comedians in town, this event guarantees non-stop hilarity and side-splitting humor that will have you rolling in the aisles. Whether you're a fan of witty one-liners, observational humor, or outrageous anecdotes, there's something for everyone at this comedy extravaganza. So gather your friends and family, and get ready to enjoy a night of pure comedy gold!",
         "event_date": "2024-04-05",
         "event_time": "7:00pm-9:00pm"
@@ -28,10 +29,7 @@
         "event_image": "https://shorturl.at/dew04",
         "event_city": "Agra",
         "event_region": "UP",
-        "event_category": [
-            "adventure",
-            "sponsored"
-        ],
+        "event_category": ["adventure","sponsored"],
         "event_description": "Embark on an exhilarating adventure trek through the breathtaking landscapes of Agra! This thrilling expedition takes you on a journey through rugged terrain, dense forests, and scenic vistas, offering a unique opportunity to reconnect with nature and challenge your limits. Led by experienced guides, the Adventure Trek promises an unforgettable experience filled with adrenaline-pumping activities and awe-inspiring sights. Whether you're scaling rocky cliffs, navigating winding trails, or soaking in panoramic views, every step of the journey is an adventure waiting to be discovered. So pack your bags, lace up your boots, and get ready for the ultimate outdoor escapade!",
         "event_date": "2024-04-15",
         "event_time": "8:00am-5:00pm"
@@ -42,10 +40,7 @@
         "event_image": "https://shorturl.at/dpyCI",
         "event_city": "Noida",
         "event_region": "UP",
-        "event_category": [
-            "music",
-            "sponsored"
-        ],
+        "event_category": ["music","sponsored"],
         "event_description": "Immerse yourself in the pulsating rhythms and electrifying beats of the Music Festival at Noida! Featuring top artists and bands from around the world, this vibrant extravaganza is a celebration of music in all its forms. From soulful melodies to high-energy performances, the festival showcases a diverse lineup that caters to every musical taste. Dance to your favorite tunes under the starlit sky, surrounded by fellow music enthusiasts and the infectious energy of live performances. With an atmosphere charged with excitement and euphoria, the Music Festival promises an unforgettable experience that will leave you craving for more!",
         "event_date": "2024-05-10",
         "event_time": "6:00pm-11:00pm"
@@ -56,9 +51,7 @@
         "event_image": "https://rb.gy/gjdakn",
         "event_city": "Delhi",
         "event_region": "Delhi",
-        "event_category": [
-            "cinematography"
-        ],
+        "event_category": ["cinematography"],
         "event_description": "Unlock the secrets of visual storytelling at the Cinematography Workshop in Delhi! Led by industry experts and seasoned professionals, this immersive workshop offers a comprehensive insight into the art and craft of cinematography. Whether you're an aspiring filmmaker, a seasoned cinematographer, or simply a film enthusiast eager to learn more, this workshop is designed to inspire and educate. From understanding camera techniques to mastering lighting and composition, participants will gain invaluable skills and knowledge to elevate their filmmaking prowess. Don't miss this opportunity to learn from the best and take your passion for filmmaking to new heights!",
         "event_date": "2024-05-01",
         "event_time": "9:00am-4:00pm"
@@ -69,10 +62,7 @@
         "event_image": "https://rb.gy/wrof1e",
         "event_city": "Agra",
         "event_region": "UP",
-        "event_category": [
-            "food",
-            "sponsored"
-        ],
+        "event_category": ["food","sponsored"],
         "event_description": "Savor the flavors of gastronomic delight at the Food Festival Extravaganza in Agra! Indulge your palate with a tantalizing array of culinary creations from around the world, prepared by renowned chefs and culinary experts. From exotic street food to gourmet delicacies, there's something to tempt every taste bud at this epicurean extravaganza. Immerse yourself in the vibrant ambiance of the festival, as live music fills the air and the aroma of mouthwatering dishes wafts through the bustling stalls. Whether you're a foodie at heart or simply looking for a memorable dining experience, the Food Festival promises a gastronomic journey like no other!",
         "event_date": "2024-06-20",
         "event_time": "11:00am-9:00pm"
@@ -83,10 +73,7 @@
         "event_image": "https://i.pinimg.com/736x/8f/9b/9a/8f9b9aeed321f8c3578b51a1c5c3aeb9.jpg",
         "event_city": "Gurgaon",
         "event_region": "Delhi",
-        "event_category": [
-            "sponsored",
-            "food"
-        ],
+        "event_category": ["sponsored","food"],
         "event_description": "Run for a cause and make a difference at the Sponsored Charity Run in Gurgaon! Join fellow runners and fitness enthusiasts for a morning of camaraderie, fitness, and philanthropy as we come together to support a noble cause. Whether you're a seasoned runner or a first-time participant, this charity run welcomes individuals of all ages and fitness levels to take part in this meaningful event. With every step you take, you'll be contributing to the welfare of those in need and spreading awareness about the importance of health and wellness. So lace",
         "event_date": "2024-06-20",
         "event_time": "11:00am-9:00pm"
@@ -97,9 +84,7 @@
         "event_image": "https://cdn.create.vista.com/downloads/6b8517be-e21a-4566-9a63-88f9870c4739_1024.jpeg",
         "event_city": "Nainital",
         "event_region": "Uttarakhand",
-        "event_category": [
-            "adventure"
-        ],
+        "event_category": ["adventure"],
         "event_description": "Embark on an exhilarating hiking and camping adventure amidst the breathtaking landscapes of Nainital! Join fellow outdoor enthusiasts for a journey into the heart of nature, where towering mountains, lush forests, and pristine lakes await. Led by experienced guides, this unforgettable trip offers the perfect blend of adventure, exploration, and relaxation. From challenging trekking routes to serene camping spots, every moment is an opportunity to connect with the natural world and create lasting memories. Whether you're a seasoned hiker or a novice explorer, this hiking and camping trip promises an unforgettable experience in the great outdoors!",
         "event_date": "2024-08-15",
         "event_time": "10:00am-Next day"
@@ -110,10 +95,7 @@
         "event_image": "https://i.pinimg.com/originals/d5/74/f4/d574f48943635ac41fbd360789338de4.jpg",
         "event_city": "Chandigarh",
         "event_region": "Chandigarh",
-        "event_category": [
-            "holi",
-            "sponsored"
-        ],
+        "event_category": ["holi","sponsored"],
         "event_description": "Experience the magic of live music at the Sponsored Music Concert in Chandigarh! Featuring an electrifying lineup of renowned artists and performers, this concert promises an unforgettable evening of sensational performances and musical extravaganza. From soulful melodies to high-energy beats, the concert showcases a diverse range of musical genres that will captivate audiences of all ages. Join us as we come together to celebrate the universal language of music and create memories that will last a lifetime. Don't miss this opportunity to be part of an unforgettable musical journey!",
         "event_date": "2024-09-30",
         "event_time": "6:00pm-11:00pm"
@@ -124,9 +106,7 @@
         "event_image": "https://i.pinimg.com/originals/39/e2/e2/39e2e28df3c1b83d8b23b2b9d57fa7b1.jpg",
         "event_city": "Lucknow",
         "event_region": "UP",
-        "event_category": [
-            "cinematography"
-        ],
+        "event_category": ["cinematography"],
         "event_description": "Step into the enchanting world of cinema under the starlit sky at the Outdoor Movie Screening in Lucknow! Join fellow film enthusiasts for a magical evening of cinematic delight as we showcase timeless classics and beloved movies in the open air. Whether you're a cinephile, a casual moviegoer, or simply looking for a unique entertainment experience, this outdoor screening promises to transport you to distant worlds and evoke a range of emotions. Grab your blankets, pack some snacks, and get ready for an unforgettable movie night under the twinkling stars!",
         "event_date": "2024-10-10",
         "event_time": "7:30pm-10:30pm"

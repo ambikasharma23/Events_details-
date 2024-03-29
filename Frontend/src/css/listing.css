@@ -1,0 +1,59 @@
+.event-listing-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: black;
+    
+
+  }
+  
+  .event-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  /* Define styles for EventCard component */
+  .event-listing-container img{
+    
+    width: 360px; /* Adjust width as needed */
+    height: 250px; /* Adjust height as needed */
+   
+    overflow: hidden; /* Crop any overflowing content */
+    /* background-image: url('https://media1.giphy.com/media/2TId6ZOPB2N0bmoZsk/giphy.webp?cid=790b7611o21yorj5f43pph1pcng3d7fdwrr6jhhvjbhf251i&ep=v1_gifs_search&rid=giphy.webp&ct=g'); */
+    background-size: cover; /* Cover the entire container */
+    background-position: center right;
+    background-repeat: no-repeat; /* Do not repeat the image */
+}
+.event-listing-container input {
+  width: calc(100% - 40px); /* Adjust width to fill container with reduced space */
+  height: 30px;
+  margin-right: 20px; /* Reduce space on the right side */
+  margin-bottom: 20px; /* Add spacing below the input */
+  padding-left: 30px;
+  background-image: url('../components/icon\ image.jpg'), url('../components/Untitled.jpg');
+  background-color: #2c2b2b;
+  background-size: 20px auto, 20px auto; /* Adjust size of both icons */
+  background-repeat: no-repeat, no-repeat;
+  background-position: 5px center, right center; /* Adjust position of the icons */
+}
+@media only screen and (max-width: 800px) {
+  .event-listing-container img {
+    max-width: 100%; /* Adjust the image width to fill the container */
+    margin: 0; /* Remove any margin */
+    padding: 0; /* Remove any padding */
+    background-color: black;
+    display: block; /* Ensure the image is displayed as a block element */
+  }
+
+
+  .event-listing-container input {
+      width: calc(100% - 20px); /* Adjust width to fill container with reduced space for mobile */
+      margin-right: 0; /* Remove right margin for mobile */
+  }
+  .category-images img {
+    width: calc(25% - 15px); /* Adjust width to fit 4 images in a row */
+    margin-right: 10px; /* Adjust margin for smaller screens */
+    margin-bottom: 10px; /* Add margin at the bottom of each image */
+  }
+}

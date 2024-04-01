@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import EventCard from '../components/cards'; // Import EventCard component
 
 const CategoryPage = ({ category }) => {
   const [events, setEvents] = useState([]);
@@ -6,7 +7,7 @@ const CategoryPage = ({ category }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchEventData = async () => {
+    const fetchEvents = async () => {
       try {
         const response = await fetch(`http://localhost:3001/events?event_category=${category}`);
         if (!response.ok) {
@@ -21,7 +22,7 @@ const CategoryPage = ({ category }) => {
       }
     };
 
-    fetchEventData();
+    fetchEvents();
   }, [category]);
 
   if (isLoading) {
@@ -33,7 +34,7 @@ const CategoryPage = ({ category }) => {
   }
 
   return (
-    <div>
+    <div className="category-page-container">
       <h2>{category.toUpperCase()} Events</h2>
       <div className="event-list">
         {events.map(event => (

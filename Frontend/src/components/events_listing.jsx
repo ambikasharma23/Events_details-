@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useHistory hook
+import { useNavigate,Link } from 'react-router-dom'; // Import useHistory hook
 import EventCard from './cards'; // Import EventCard component
 import '../css/listing.css'; // Import CSS file for styling
 
@@ -8,7 +8,10 @@ const EventListingPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate(); // Initialize history object using useNavigate hook
+  const [sortDropdownVisible, setSortDropdownVisible] = useState(false);
+  const [sortOption, setSortOption] = useState('');
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -44,12 +47,19 @@ const EventListingPage = () => {
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   
-    // Navigate to the new URL
-    navigate(`/events?event_category=${category}`)
-      // After navigation, fetch data from the backend based on the selected category
-      fetchEventData(category);
+    
 
     
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    // Filter events based on search query
+    const filteredEvents = events.filter(event =>
+      event.event_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      event.event_details.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setEvents(filteredEvents);
   };
   
   const fetchEventData = async (category) => {
@@ -80,14 +90,40 @@ const EventListingPage = () => {
     ? events.filter((event) => event.category === selectedCategory)
     : events;
 
+    const toggleSortDropdown = () => {
+      setSortDropdownVisible(!sortDropdownVisible);
+    };
+  
+    // Function to handle sort option selection
+    const handleSortOptionSelect = (option) => {
+      setSortOption(option);
+      toggleSortDropdown(); // Close sort dropdown after selection
+    };
+  
+    // Sort options for the dropdown
+    const sortOptions = [
+      { label: 'Popularity', value: 'popularity' },
+      { label: 'Cost: Low to High', value: 'costLowToHigh' },
+      { label: 'Cost: High to Low', value: 'costHighToLow' },
+      { label: 'Distance: Low to High', value: 'distanceLowToHigh' },
+      { label: 'Date', value: 'date' },
+    ];
+  
+    // Function to apply sorting based on the selected option
+    const applySorting = (option) => {
+      // Logic to apply sorting based on the selected option
+    };
+
   return (
     <div className="event-listing-container" style={{ backgroundColor: 'black' }}>
       
       <div style={{ position: 'relative', textAlign: 'center' }}>
         <img
-          src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzhuZmFnODdwcDdkYWFndTFtNm5xdnl0YndlOXZnMXFvb3Y3NmlxeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTiTniuHdUjpOlNo1q/giphy.gif"
+          src="https://media4.giphy.com/media/4nMRkLtGQjq5W/giphy.gif"
           alt="Loading GIF"
         />
+        
+
         <div
           style={{
             position: 'absolute',
@@ -101,7 +137,7 @@ const EventListingPage = () => {
         >
           <div style={{ fontFamily: 'brittany', fontStyle: 'italic' }}>Get ready for</div>
           <div style={{ fontWeight: 'bold', fontSize: '36px', lineHeight: '1.5', textShadow: '2px 2px pink', textDecoration: 'underline' }}>
-            Holi
+            LIVE EVENTS
           </div>
           <div style={{ fontSize: '16px' }}>celebrate with EazyDiner</div>
         </div>
@@ -113,40 +149,104 @@ const EventListingPage = () => {
       {/* Category images */}
       <div className="category-images">
         {/* Holi Image */}
-        <div style={{ display: 'inline-block', height: '200px', width: '150px', overflow: 'hidden' }}>
-          <img
-            src="https://i.pinimg.com/originals/22/8d/d2/228dd2b75e24386f01df8ab25a5df452.jpg"
-            alt="Holi"
-            onClick={() => handleCategoryClick('holi')}
-            style={{ height: '100%', width: 'auto', marginTop: '-1px' }}
-          />
-        </div>
+        
+        <div style={{ position: 'relative', display: 'inline-block', height: '200px', width: '150px', overflow: 'hidden' }}>
+  <img
+    src="https://i.pinimg.com/736x/a9/c4/d7/a9c4d70ea8b9c60f1a2d6a8ed2665077.jpg"
+    alt="Holi"
+    onClick={() => handleCategoryClick('holi')}
+    style={{ height: '100%', width: 'auto' }}
+  />
+  <div style={{ position: 'absolute', top: 0, left: 0, fontFamily: "Misti's Fonts", fontSize: '18px', color: 'white', padding: '5px' }}>
+    Holi
+  </div>
+</div>
+
 
         {/* Music Image */}
-        <div style={{ display: 'inline-block', height: '200px', width: '150px', overflow: 'hidden' }}>
-          <img
-            src="https://thumbs.dreamstime.com/b/live-music-background-25110450.jpg"
-            alt="music"
-            onClick={() => handleCategoryClick('music')}
-            style={{ height: '100%', width: 'auto', marginTop: '-1px' }}
-          />
-        </div>
+        <div style={{ position: 'relative', display: 'inline-block', height: '200px', width: '150px', overflow: 'hidden' }}>
+  <img
+    src="https://i.pinimg.com/originals/3a/f9/15/3af9153275f9ed5747718598c870904f.jpg"
+    alt="music"
+    onClick={() => handleCategoryClick('music')}
+    style={{ height: '100%', width: 'auto' }}
+  />
+  <div style={{ position: 'absolute', top: 0, left: 0, fontFamily: "Misti's Fonts", fontSize: '18px', color: 'white', padding: '5px' }}>
+    Music
+  </div>
+</div>
+
 
         {/* Art Image */}
-        <div style={{ display: 'inline-block', height: '200px', width: '150px', overflow: 'hidden' }}>
-          <img
-            src="https://www.shutterstock.com/image-photo/woman-hands-working-on-pottery-260nw-1377692564.jpg"
-            alt="art"
-            onClick={() => handleCategoryClick('art')}
-            style={{
- height: '100%', width: 'auto' }} />
-    </div>
+        <div style={{ position: 'relative', display: 'inline-block', height: '200px', width: '150px', overflow: 'hidden' }}>
+  <img
+    src="https://media.architecturaldigest.com/photos/5aff319a55eb56087f0434ac/master/pass/pottery-making.jpg"
+    alt="art"
+    onClick={() => handleCategoryClick('art')}
+    style={{ height: '100%', width: 'auto' }}
+  />
+  <div style={{ position: 'absolute', top: 0, left: 0, fontFamily: "Misti's Fonts", fontSize: '18px', color: 'white', padding: '5px' }}>
+    Art
+  </div>
+</div>
+
 
     {/* Comedy Image */}
-    <div style={{ display: 'inline-block', height: '200px', width: '150px' }}>
-      <img src="https://img.freepik.com/free-vector/stand-up-comedy-banner-with-red-curtain-background_1308-77625.jpg" alt="comedy" onClick={() => handleCategoryClick('comedy')} style={{ height: '100%', width: 'auto' }} />
-    </div>
+    <div style={{ position: 'relative', display: 'inline-block', height: '200px', width: '150px' }}>
+  <img src="https://i.pinimg.com/originals/cb/15/4a/cb154a010fbce745a44537e1de4df662.jpg" alt="comedy" onClick={() => handleCategoryClick('comedy')} style={{ height: '100%', width: 'auto' }} />
+  <div style={{ position: 'absolute', top: 0, left: 0, fontFamily: "Misti's Fonts", fontSize: '18px', color: 'white', padding: '5px' }}>
+    Comedy
   </div>
+</div>
+</div>
+
+{/* Best in Comedy Container */}
+{/* <div style={{ textAlign: 'center', marginTop: '30px' }}>
+  <p style={{ fontWeight: 'bold', color: 'grey' }}>BEST IN COMEDY</p>
+  <div className="comedy-events">
+   
+    {filteredEvents.filter(event => event.event_category === 'comedy').map(event => (
+      <EventCard key={event.id} event={event} />
+    ))}
+  </div>
+</div> */}
+ {/* Sort Button */}
+
+
+
+ {/* Explore All Events */}
+ <div style={{ textAlign: 'center', marginTop: '10px', clear: 'both' }}>
+    <p style={{ fontWeight: 'bold', color: 'grey' }}>EXPLORE ALL EVENTS</p>
+    
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', overflowX: 'auto', padding: '10px 0' }}>
+      
+    <button className="sort-button" onClick={toggleSortDropdown}style={{ background: '#2c2b2b', color: 'white', borderRadius: '20px', padding: '10px 20px' }}>sort</button>
+    {sortDropdownVisible && (
+          <div className="sort-dropdown">
+            {sortOptions.map((option) => (
+              <label key={option.value}>
+                <input
+                  type="radio"
+                  name="sortOption"
+                  value={option.value}
+                  onChange={() => handleSortOptionSelect(option.value)}
+                  checked={sortOption === option.value}
+                />
+                {option.label}
+              </label>
+            ))}
+          </div>
+        )}
+    <button className="sort-button" style={{ background: '#2c2b2b', color: 'white', borderRadius: '20px', padding: '10px 20px' }}>Under 10km</button>
+    <button className="sort-button" style={{ background: '#2c2b2b', color: 'white', borderRadius: '20px', padding: '10px 20px' }}>Bestseller</button>
+    <button className="sort-button" style={{ background: '#2c2b2b', color: 'white' , borderRadius: '20px', padding: '10px 20px'}}>DJ</button>
+    <button className="sort-button" style={{ background: '#2c2b2b', color: 'white' , borderRadius: '20px', padding: '10px 20px'}}>Live Music</button>
+    <button className="sort-button" style={{ background: '#2c2b2b', color: 'white' , borderRadius: '20px', padding: '10px 20px'}}>Trending</button>
+    <button className="sort-button" style={{ background: '#2c2b2b', color: 'white', borderRadius: '20px', padding: '10px 20px' }}>Comedy</button>
+    <button className="sort-button" style={{ background: '#2c2b2b', color: 'white', borderRadius: '20px', padding: '10px 20px' }}>Party</button>
+  </div>
+  </div>
+
 
 
       <div className="event-list">
@@ -154,7 +254,13 @@ const EventListingPage = () => {
           <EventCard key={event.id} event={event} />
         ))}
       </div>
+
+      <div style={{ textAlign: 'left', marginTop: '30px' }}>
+  <p style={{ fontWeight: 'bold', color: 'white', fontSize: '28px', fontFamily: 'sans-serif' }}>Eazydiner</p>
+</div>
     </div>
+
+    
   );
 };
 

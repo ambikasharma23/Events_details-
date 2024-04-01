@@ -26,7 +26,7 @@
     {
         "id": 3,
         "event_name": "Adventure Trek in Agra",
-        "event_image": "https://shorturl.at/dew04",
+        "event_image": "https://i.pinimg.com/originals/82/47/83/824783d4f2b1b3accdcb8187ae9a590f.gif",
         "event_city": "Agra",
         "event_region": "UP",
         "event_category": ["adventure","sponsored"],
@@ -37,7 +37,7 @@
     {
         "id": 4,
         "event_name": "Music Festival at Noida",
-        "event_image": "https://shorturl.at/dpyCI",
+        "event_image": "https://i.pinimg.com/originals/69/8b/bd/698bbd8595d3ab2ea6fb1c7b77150584.gif",
         "event_city": "Noida",
         "event_region": "UP",
         "event_category": ["music","sponsored"],

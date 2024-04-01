@@ -37,6 +37,34 @@
   background-repeat: no-repeat, no-repeat;
   background-position: 5px center, right center; /* Adjust position of the icons */
 }
+.category-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.category-images img {
+  width: calc(50% - 5px); /* Set the width of each image to half minus gap */
+  height: 150px; /* Set the height of each image */
+  object-fit: cover; /* Crop the images to cover the container */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  margin-bottom: 10px; /* Add margin between rows */
+}
+
+.category-images img:nth-child(odd) {
+  margin-right: 10px; /* Add margin between images */
+}
+
+.category-images img:nth-child(even) {
+  margin-left: 10px; /* Add margin between images */
+}
+
+
+.category-images img:last-child {
+  margin-right: 0; /* Remove margin from the last image */
+}
+
 @media only screen and (max-width: 800px) {
   .event-listing-container img {
     max-width: 100%; /* Adjust the image width to fill the container */

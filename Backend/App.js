@@ -12,18 +12,31 @@ app.use(cors());
 const jsonData = JSON.parse(fs.readFileSync('db.json', 'utf8'));
 
 // Endpoint to get all events
+// Endpoint to get all events
 app.get('/events', (req, res) => {
-  const { event_category } = req.query;
+  const { event_category, search } = req.query;
 
-  if (event_category) {
-    // Filter events based on the provided event_category parameter
-    const filteredEvents = jsonData.events.filter(event => event.event_category.includes(event_category));
-    res.json(filteredEvents);
-  } else {
-    // Return all events if no event_category parameter is provided
-    res.json(jsonData.events);
+  let filteredEvents = jsonData.events;
+
+  // Filter events based on the provided event_category parameter
+  if (event_category !== undefined) {
+    filteredEvents = filteredEvents.filter(event => event.event_category.includes(event_category));
   }
+
+  // If search parameter is provided, further filter based on event_name and event_details
+  if (search !== undefined) {
+    const searchString = search.toLowerCase();
+    filteredEvents = filteredEvents.filter(event =>
+      (event.event_name && event.event_name.toLowerCase().includes(searchString)) ||
+      (event.event_details && event.event_details.toLowerCase().includes(searchString))
+    );
+  }
+
+  res.json(filteredEvents);
 });
+
+
+
 
 // Endpoint to get a specific event by ID
 app.get('/events/:eventId', (req, res) => {

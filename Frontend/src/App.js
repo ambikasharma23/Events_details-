@@ -12,7 +12,7 @@ const App = () => {
       <Routes>
       <Route path="/events" element={<EventListing />} />
         <Route path="/events/:eventId" element={<EventDetails />} />
-        <Route path="/events/filter/:event_category" element={<EventCategoryPage />}/>
+        <Route path="/events/:category" element={<EventCategoryPage />}/>
         {/* Define other routes as needed */}
         {/* For example:
         <Route path="/other" element={<OtherComponent />} />

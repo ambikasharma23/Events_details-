@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import EventCard from '../components/cards'; // Import EventCard component
+import { useParams } from 'react-router-dom';
 
-const CategoryPage = ({ category }) => {
+const CategoryPage = () => {
+  const {category}= useParams();
   const [events, setEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);

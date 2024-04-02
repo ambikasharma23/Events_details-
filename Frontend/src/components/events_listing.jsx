@@ -45,37 +45,44 @@ const EventListingPage = () => {
   }, []);
   
   const handleCategoryClick = (category) => {
+
     setSelectedCategory(category);
+    navigate('./category');
   
     
 
     
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
-    // Filter events based on search query
-    const filteredEvents = events.filter(event =>
-      event.event_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      event.event_details.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setEvents(filteredEvents);
-  };
-  
-  const fetchEventData = async (category) => {
     try {
-      const response = await fetch(`http://localhost:3001/events?event_category=${category}`);
+      const response = await fetch(`http://localhost:3001/events?search=${searchQuery}`);
       if (!response.ok) {
         throw new Error('Failed to fetch events');
       }
       const eventData = await response.json();
       setEvents(eventData);
-      setIsLoading(false);
     } catch (error) {
       setError(error.message);
-      setIsLoading(false);
     }
   };
+  
+  
+  // const fetchEventData = async (category) => {
+  //   try {
+  //     const response = await fetch(`http://localhost:3001/events?event_category=${category}`);
+  //     if (!response.ok) {
+  //       throw new Error('Failed to fetch events');
+  //     }
+  //     const eventData = await response.json();
+  //     setEvents(eventData);
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     setError(error.message);
+  //     setIsLoading(false);
+  //   }
+  // };
 
   if (isLoading) {
     return <div>Loading events...</div>;
@@ -92,11 +99,28 @@ const EventListingPage = () => {
 
     const toggleSortDropdown = () => {
       setSortDropdownVisible(!sortDropdownVisible);
+      if (!sortDropdownVisible) {
+        // Delay the calculation to ensure the dropdown is rendered
+        setTimeout(() => {
+          const button = document.querySelector('.sort-button');
+          if (button) {
+            const rect = button.getBoundingClientRect();
+            const dropdownHeight = document.querySelector('.sort-dropdown').offsetHeight;
+            const bottomOffset = window.innerHeight - rect.bottom;
+            if (bottomOffset < dropdownHeight) {
+              window.scrollBy({ top: dropdownHeight - bottomOffset, behavior: 'smooth' });
+            }
+          }
+        }, 100); // Adjust the delay time as needed
+      }
     };
+
+    
   
     // Function to handle sort option selection
     const handleSortOptionSelect = (option) => {
       setSortOption(option);
+      applySorting(option); // Apply sorting based on the selected option
       toggleSortDropdown(); // Close sort dropdown after selection
     };
   
@@ -110,9 +134,21 @@ const EventListingPage = () => {
     ];
   
     // Function to apply sorting based on the selected option
-    const applySorting = (option) => {
-      // Logic to apply sorting based on the selected option
-    };
+   
+   const applySorting = (option) => {
+    switch (option) {
+      case 'date':
+        // Sort events based on the event date in ascending order
+        const sortedEventsByDate = [...events].sort((a, b) => new Date(a.event_date) - new Date(b.event_date));
+        setEvents(sortedEventsByDate);
+        break;
+      default:
+        // Handle other sorting options if needed
+        break;
+    }
+  };
+  
+
 
   return (
     <div className="event-listing-container" style={{ backgroundColor: 'black' }}>
@@ -142,15 +178,32 @@ const EventListingPage = () => {
           <div style={{ fontSize: '16px' }}>celebrate with EazyDiner</div>
         </div>
       </div>
-      <input type="text" placeholder="  Search events..." />
+      <form onSubmit={handleSearch}>
+      <input
+  type="text"
+  placeholder="  Search events..."
+  value={searchQuery}
+  onChange={(e) => setSearchQuery(e.target.value)}
+  onKeyPress={(e) => {
+    if (e.key === 'Enter') {
+      handleSearch(e);
+    }
+  }}
+/>
+    </form>
+
       <div style={{ textAlign: 'center', marginTop: '10px' }}>
         <p style={{ fontWeight: 'bold', color: 'grey' }}>WHAT ARE YOU LOOKING FOR</p>
       </div>
       {/* Category images */}
+
+      {searchQuery === '' && (
+  <>
       <div className="category-images">
         {/* Holi Image */}
         
         <div style={{ position: 'relative', display: 'inline-block', height: '200px', width: '150px', overflow: 'hidden' }}>
+ 
   <img
     src="https://i.pinimg.com/736x/a9/c4/d7/a9c4d70ea8b9c60f1a2d6a8ed2665077.jpg"
     alt="Holi"
@@ -160,6 +213,7 @@ const EventListingPage = () => {
   <div style={{ position: 'absolute', top: 0, left: 0, fontFamily: "Misti's Fonts", fontSize: '18px', color: 'white', padding: '5px' }}>
     Holi
   </div>
+  
 </div>
 
 
@@ -210,33 +264,44 @@ const EventListingPage = () => {
     ))}
   </div>
 </div> */}
- {/* Sort Button */}
+
 
 
 
  {/* Explore All Events */}
  <div style={{ textAlign: 'center', marginTop: '10px', clear: 'both' }}>
     <p style={{ fontWeight: 'bold', color: 'grey' }}>EXPLORE ALL EVENTS</p>
-    
-    <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', overflowX: 'auto', padding: '10px 0' }}>
-      
-    <button className="sort-button" onClick={toggleSortDropdown}style={{ background: '#2c2b2b', color: 'white', borderRadius: '20px', padding: '10px 20px' }}>sort</button>
-    {sortDropdownVisible && (
-          <div className="sort-dropdown">
-            {sortOptions.map((option) => (
-              <label key={option.value}>
-                <input
-                  type="radio"
-                  name="sortOption"
-                  value={option.value}
-                  onChange={() => handleSortOptionSelect(option.value)}
-                  checked={sortOption === option.value}
-                />
-                {option.label}
-              </label>
-            ))}
-          </div>
-        )}
+    </div>
+
+  {/* Sort Button */}   
+    <div style={{ display: 'flex', justifyContent: 'left', gap: '10px', overflowX: 'auto', padding: '10px 0' }}>
+    <button className="sort-button" onClick={toggleSortDropdown} style={{ background: '#2c2b2b', color: 'white', borderRadius: '20px', padding: '10px 20px', marginLeft: '20px', position: 'relative' }}>
+  {sortOption || 'Sort'}
+  {sortOption && (
+    <span style={{ position: 'absolute', right: '5px', top: '50%', transform: 'translateY(-50%)', cursor: 'pointer' }} onClick={() => setSortOption('')}>
+      &#10006;
+    </span>
+  )}
+</button>
+          
+{sortDropdownVisible && (
+  <div className="sort-dropdown">
+    {sortOptions.map((option) => (
+      <label key={option.value}>
+        <input
+          type="radio"
+          name="sortOption"
+          value={option.value}
+          onChange={() => handleSortOptionSelect(option.label)}
+          checked={sortOption === option.label}
+        />
+        {option.label}
+      </label>
+    ))}
+  </div>
+)}
+
+
     <button className="sort-button" style={{ background: '#2c2b2b', color: 'white', borderRadius: '20px', padding: '10px 20px' }}>Under 10km</button>
     <button className="sort-button" style={{ background: '#2c2b2b', color: 'white', borderRadius: '20px', padding: '10px 20px' }}>Bestseller</button>
     <button className="sort-button" style={{ background: '#2c2b2b', color: 'white' , borderRadius: '20px', padding: '10px 20px'}}>DJ</button>
@@ -245,10 +310,9 @@ const EventListingPage = () => {
     <button className="sort-button" style={{ background: '#2c2b2b', color: 'white', borderRadius: '20px', padding: '10px 20px' }}>Comedy</button>
     <button className="sort-button" style={{ background: '#2c2b2b', color: 'white', borderRadius: '20px', padding: '10px 20px' }}>Party</button>
   </div>
-  </div>
+  </>)}
 
-
-
+   
       <div className="event-list">
         {filteredEvents.map(event => (
           <EventCard key={event.id} event={event} />
